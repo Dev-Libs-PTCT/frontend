@@ -25,7 +25,7 @@ export default function Profile() {
   }, [isFetching]);
 
   if (!profLib) {
-    return <h1>Loading..</h1>;
+    return <h1 className='all-center'>Loading...<i class="fas fa-spinner "></i></h1>;
   } else if (profLib.length === 0) {
     return <h2>Nothing to see here!</h2>;
   }
