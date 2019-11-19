@@ -2,48 +2,40 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
-function LoginForm( { values, errors, touched } ) {
+function LoginForm({ errors, touched }) {
   return (
     <Form>
+      <div>
+        <h1>DevLibs Login Form</h1>
+      </div>
       <div>
         <Field type="text" name="username" placeholder="Username" />
         {touched.username && errors.username && <p>{errors.username}</p>}
       </div>
       <div>
-        <Field type="email" name="email" placeholder="Email" />
-        {touched.email && errors.email && <p>{errors.email}</p>}
-      </div>
-      <div>
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && <p>{errors.password}</p>}
       </div>
-      <label>
-        <Field type="checkbox" name="tos" checked={values.tos} />
-        Agree to Terms of Service?
-      </label>
-      <button type='submit'>Submit!</button>
+      <br />
+      <button type="submit">Login!</button> <br />
+      Don't have an account? <Link to ="/signup">Signup!</Link>
     </Form>
   );
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, email, password, tos }) {
+  mapPropsToValues({ username, password }) {
     return {
       username: username || "",
-      email: email || "",
-      password: password || "",
-      tos: tos || false
+      password: password || ""
     };
   },
 
   //======VALIDATION SCHEMA==========
   validationSchema: Yup.object().shape({
-    username: Yup.string()
-      .required(),
-    email: Yup.string()
-      .email()
-      .required(),
+    username: Yup.string().required(),
     password: Yup.string()
       .min(6)
       .required()
@@ -55,7 +47,7 @@ const FormikLoginForm = withFormik({
       setErrors({ email: "That email is already taken" });
     } else {
       axios
-        .post("https://reqres.in/api/users", values)
+        .post("https://dev-libs-test.herokuapp.com/api/auth/login", values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
           resetForm();

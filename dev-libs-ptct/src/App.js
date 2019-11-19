@@ -1,12 +1,14 @@
 import React from 'react';
-import LoginForm from './components/form.js'
+import SignupForm from './components/Signupform.js'
+import LoginForm from './components/Loginform.js'
 import './App.css';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-        This is the beginning of an app
-        <LoginForm />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/signup" component={SignupForm} />
     </div>
   );
 }
