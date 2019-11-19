@@ -41,9 +41,9 @@ const ProfileCard = props => {
 
       <Card>
         <p>{props.lib.lib}</p>
-        <button className='btn bg-primary' onClick={handleOpen}>Edit</button>
+        <button className='btn bg-primary' onClick={handleOpen}><i class="fas fa-edit"></i></button>
         {open && <SimpleModal handleClose={handleClose} open={open} lib={props.lib} isFetching={props.isFetching} setFetching={props.setFetching} />}
-        <button className='btn bg-primary' onClick={handleDelete}>Delete</button> 
+        <button className='btn bg-primary' onClick={handleDelete}><i class="fas fa-trash-alt"></i></button> 
       </Card>
 
 
