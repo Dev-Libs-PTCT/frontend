@@ -21,6 +21,7 @@ const DevLibForm = props => {
   };
 
   return (
+    //please make a better form. Multi step would be great
     <div className="form-container">
       <h2 className="form-header">Choose your words carefully!</h2>
       <form className="input-form" id='input-form' onSubmit={handleSubmit}>
