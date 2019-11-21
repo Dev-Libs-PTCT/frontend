@@ -78,7 +78,7 @@ export default function SimpleModal(props) {
           <textarea cols='50' rows='15' type='text'  value={add} onChange={handleChange}>
             
           </textarea> 
-          <button className='btn bg-primary'  onClick={handleSubmit}> Save </button>         
+          <button className='btn bg-primary'  onClick={handleSubmit}> Submit </button>         
         </div>
       </Modal>
     </div>

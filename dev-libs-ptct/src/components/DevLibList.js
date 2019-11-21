@@ -16,7 +16,7 @@ const DevLibList = props => {
         console.log(err);
       });
   }, []);
-//a pagination system to dyplay only 5 dev-lib per page would be great
+
   return (
     <div>
       <h1>Created Dev-Libs</h1>

@@ -43,7 +43,7 @@ const CreateDevLib = props => {
   }, []);
 
   const handleSubmit = e => {
-    console.log("submit", e);
+    console.log("from handle submit", e);
     console.log(addDevLib);
     axiosWithAuth()
       .post("/api/devLib", addDevLib)
@@ -56,13 +56,14 @@ const CreateDevLib = props => {
   };
 
   return (
-    <div>
+    <div className="create-container">
+      <h3 className="create-header"> </h3>
 
       <StoryCard lib={addDevLib} />
 
       <button className='btn bg-primary' onClick={handleSubmit}>
         {" "}
-        Save{" "}
+        Add{" "}
       </button>
     </div>
   );
